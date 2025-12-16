@@ -1,0 +1,98 @@
+/* Section principale */
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 60px 6%;
+  background-color: #1f5fbf;
+  color: #ffffff;
+}
+
+/* Titre */
+.about h2 {
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  color: #ffffff;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+/* Nouveau layout pro */
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 20px;
+}
+
+/* Colonne texte */
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-right: 40px;
+}
+
+.about-text p {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+/* Barre verticale tech */
+.about-divider {
+  width: 2px;
+  height: 80%;
+  background: linear-gradient(to bottom, transparent, #ffffff55, transparent);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* Colonne canvas */
+.about-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 40px;
+}
+
+.about-canvas {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+}
+
+/* Accent de texte */
+.highlight {
+  color: #b7d7ff;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-divider {
+    display: none;
+  }
+
+  .about-text {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .about-visual {
+    padding-left: 0;
+  }
+}

@@ -1,0 +1,217 @@
+/* SECTION TIMELINE */
+.timeline {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 60px 6%;
+  background-color: #1f5fbf;
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* Titre */
+.timeline h2 {
+  margin-bottom: 40px;
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  text-align: center;
+}
+
+.timeline h2::before {
+  content: "";
+  display: block;
+  width: 700px;
+  height: 3px;
+  background: #ffffff;
+  margin: 0 auto 75px;
+  border-radius: 2px;
+}
+
+/* Conteneur interne */
+.timeline-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Ligne centrale */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 40px;
+  bottom: 40px;
+  width: 4px;
+  background: #ffffff;
+  border-radius: 2px;
+}
+
+/* Étapes */
+.timeline-step {
+  position: relative;
+  width: 100%;
+  padding: 28px 0;
+  display: flex;
+  min-height: 140px;
+}
+
+.center-step {
+  justify-content: center !important;
+}
+
+.center-step .timeline-content {
+  margin: 0 auto !important;
+  max-width: 380px;
+  text-align: center;
+}
+
+.center-step .timeline-content::after {
+  display: none !important;
+}
+
+/* Alternance gauche/droite */
+.timeline-step:nth-of-type(odd) {
+  justify-content: flex-end;
+}
+
+.timeline-step:nth-of-type(even) {
+  justify-content: flex-start;
+}
+
+/* Bloc de contenu */
+.timeline-content {
+  background: #ffffff;
+  color: #1f5fbf;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 320px;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.timeline-content p {
+  color: #000000;
+}
+/* Marges pour coller à la ligne */
+.timeline-step:nth-of-type(odd) .timeline-content {
+  margin-right: 11px; /* augmenté */
+}
+
+.timeline-step:nth-of-type(even) .timeline-content {
+  margin-left: 14px; /* augmenté */
+}
+
+/* ✅ CERCLE SUR LA TIMELINE */
+.timeline-icon-wrapper {
+  position: absolute;
+  left: 452px;
+  top: 26px; /* aligné avec la flèche */
+  transform: translate(-50%, 0);
+
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+
+  background: #ffffff;
+  padding: 7px;
+
+  overflow: hidden; /* coupe l’image */
+  box-sizing: border-box;
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Bordure bleue interne */
+.timeline-icon-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  border: 3px solid #1f5fbf;
+  pointer-events: none;
+}
+
+/* ✅ Image qui remplit le cercle */
+.timeline-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* remplit tout */
+  border-radius: 50%;
+  z-index: 10;
+}
+
+/* Flèche gauche (bloc à droite) */
+.timeline-step:nth-of-type(even) .timeline-content::after {
+  content: "";
+  position: absolute;
+  top: 35px;
+  right: -28px;
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 28px solid #ffffff;
+}
+
+/* Flèche droite (bloc à gauche) */
+.timeline-step:nth-of-type(odd) .timeline-content::after {
+  content: "";
+  position: absolute;
+  top: 35px;
+  left: -28px;
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-right: 28px solid #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .timeline {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .timeline-line {
+    left: 20px;
+    transform: none;
+  }
+
+  .timeline-step {
+    width: 100%;
+    justify-content: flex-start !important;
+    padding-left: 50px;
+  }
+
+  .timeline-content {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .timeline-content::after {
+    left: -28px !important;
+    right: auto !important;
+    border-right: 28px solid #ffffff !important;
+    border-left: none !important;
+  }
+
+  .timeline-icon-wrapper {
+    left: 20px;
+    transform: translateY(0);
+  }
+}

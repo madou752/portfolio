@@ -1,0 +1,117 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--blue-darker);
+}
+
+.hero-text-wrapper {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  pointer-events: none;
+}
+
+.hero-text-wrapper .Typewriter__wrapper {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.hero-text-wrapper div:nth-child(2) .Typewriter__wrapper {
+  font-size: clamp(1.5rem, 3vw, 2rem); 
+  font-weight: 500;
+  color: #fff;
+  opacity: 0.85;
+}
+
+.hero-text-wrapper > div {
+  margin: 10px 0;
+}
+
+/* Canvas du fond animé */
+.hero-bg-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+/* Texte */
+.hero-content {
+  position: absolute;
+  z-index: 10;
+  color: var(--text-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  pointer-events: none;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  margin: 0;
+}
+
+.hero-title span {
+  color: var(--blue-light);
+}
+
+.hero-subtitle {
+  margin-top: 10px;
+  font-size: clamp(1rem, 2vw, 1.6rem);
+  font-weight: 400;
+  color: var(--blue-medium-light);
+}
+
+.ascii-bg {
+  background: transparent;
+  image-rendering: pixelated;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 90%;
+  width: 90%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  pointer-events: none; /* Ajout conseillé */
+}
+
+.scroll-down-arrow {
+  width: 32px;
+  height: 32px;
+  border-left: 3px solid var(--blue-light);
+  border-bottom: 3px solid var(--blue-light);
+  transform: rotate(-45deg);
+  margin-top: 40px;
+  animation: arrowBounce 1.5s infinite ease-in-out;
+  cursor: pointer;
+  z-index: 20;
+}
+
+@keyframes arrowBounce {
+  0% {
+    transform: translateY(0) rotate(-45deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(-45deg);
+  }
+  100% {
+    transform: translateY(0) rotate(-45deg);
+  }
+}

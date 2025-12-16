@@ -1,0 +1,93 @@
+/* NAVBAR BASE */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 28px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.35s ease;
+  z-index: 9999;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+/* SHRINK ON SCROLL */
+.navbar.scrolled {
+  background: #ffffff;
+  padding: 2px 3%;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* LOGO */
+.nav-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #ffffff;
+  transition: color 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar.scrolled .nav-logo {
+  color: #1f1f1f;
+}
+
+/* LINKS CONTAINER */
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+/* BUTTONS styled like links */
+.nav-links button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  color: inherit;
+  padding: 0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* TEXT COLOR WHEN SCROLLED */
+.navbar.scrolled .nav-links button {
+  color: #1f1f1f;
+}
+
+/* UNDERLINE ANIMATION */
+.nav-links button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #1f5fbf;
+  transition: width 0.3s ease;
+}
+
+.nav-links button:hover::after {
+  width: 100%;
+}
+
+/* ✅ ACTIVE LINK (blue text + underline) */
+.nav-links button.active {
+  color: #1f5fbf;
+}
+
+.nav-links button.active::after {
+  width: 100%;
+}
+
+/* ✅ ACTIVE LINK EVEN WHEN SCROLLED */
+.navbar.scrolled .nav-links button.active {
+  color: #1f5fbf !important;
+}

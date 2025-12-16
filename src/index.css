@@ -1,0 +1,35 @@
+:root { 
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --blue-light: #04bbff;
+  --blue-medium-light: #0594d0;
+  --blue-medium: #007198;
+  --blue-dark: #003c57;
+  --blue-darker: #051c24;
+
+  --text-light: #eefaff;
+  --text-dark: #0d1b22;
+}
+
+html, body, #root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+.hero, .about, .projects, .contact {
+  width: 100%;
+  box-sizing: border-box;
+}

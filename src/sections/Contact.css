@@ -1,0 +1,75 @@
+.contact {
+  padding: 80px 6%;
+  background-color: var(--blue-dark);
+  color: var(--text-light);
+  text-align: center;
+  min-height: 100vh;
+}
+
+.contact h2 {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  margin-bottom: 10px;
+  color: var(--blue-light);
+}
+
+.contact p {
+  margin-bottom: 40px;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.icon-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.icon-label .icon {
+  margin-right: 8px;
+  color: var(--blue-light);
+  font-size: 1.2rem;
+}
+
+input, textarea {
+  padding: 12px 15px;
+  border-radius: 6px;
+  border: 1px solid var(--blue-medium);
+  background-color: var(--blue-darker);
+  color: var(--text-light);
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+textarea {
+  min-height: 120px;
+}
+
+.btn-submit {
+  background-color: var(--blue-light);
+  color: var(--text-dark);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: var(--blue-medium-light);
+}
