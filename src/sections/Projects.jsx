@@ -59,6 +59,7 @@ const projects = [
       "Portfolio personnel développé en React afin de présenter mes projets et compétences techniques, tout en mettant en pratique le design d’interface, la structuration des composants et les bonnes pratiques du développement front-end.",
 
     stack: ["React"],
+    code : "https://github.com/madou752/portfolio",
   },
 ];
 
