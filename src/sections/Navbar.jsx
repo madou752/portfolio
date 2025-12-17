@@ -52,6 +52,7 @@ export default function NavBar() {
         className="nav-logo"
         onClick={() => scrollToSection("hero")}
       >
+        <img src="/logo.png" alt="Logo" className="logo-img" />
         Mehdi Hammadou
       </button>
 

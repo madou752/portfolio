@@ -31,12 +31,29 @@
   background: none;
   border: none;
   cursor: pointer;
+  display : flex;
+  align-items: center;
 }
 
 .navbar.scrolled .nav-logo {
   color: #1f1f1f;
 }
+.logo-img {
+  height: 32px;
+  width: auto;
+  margin-right: 10px;
+  transition: filter 0.3s ease;
+}
 
+/* ✅ Quand la navbar est transparente (sur le hero) → logo devient blanc */
+.navbar:not(.scrolled) .logo-img {
+  filter: brightness(0) invert(1);
+}
+
+/* ✅ Quand la navbar devient blanche → logo redevient noir */
+.navbar.scrolled .logo-img {
+  filter: none;
+}
 /* LINKS CONTAINER */
 .nav-links {
   display: flex;
