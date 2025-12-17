@@ -9,12 +9,60 @@
 
   display: flex;
   flex-direction: column;
-
   align-items: center;
   justify-content: center;
 
   box-sizing: border-box;
-  overflow: visible;
+  overflow: hidden; /* ✅ important pour le fond animé */
+}
+
+/* ✅ FOND CIRCUIT IMPRIMÉ */
+/* ✅ FOND CIRCUIT IMPRIMÉ (subtil) */
+.timeline::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    /* lignes horizontales */
+    linear-gradient(
+      to right,
+      rgba(255,255,255,0.10) 1px,
+      transparent 1px
+    ),
+    /* lignes verticales */
+    linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.10) 1px,
+      transparent 1px
+    );
+
+  background-size: 120px 120px; /* ✅ grille carrée */
+  opacity: 0.4;                /* ✅ beaucoup plus subtil */
+  z-index: 0;
+}
+
+/* ✅ POINTS CENTRÉS DANS CHAQUE CARRÉ */
+.timeline::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    radial-gradient(circle, rgba(255,255,255) 0px, transparent 4px);
+
+  background-size: 120px 120px; /* ✅ même taille que la grille */
+  background-position: 60.5px 60.5px; /* ✅ EXACTEMENT au centre du carré */
+  opacity: 0.15;                 /* ✅ visible mais pas agressif */
+  z-index: 0;
+}
+
+
+/* ✅ Le contenu passe au-dessus du fond */
+.timeline-container,
+.timeline h2 {
+  position: relative;
+  z-index: 2;
 }
 
 /* Titre */
@@ -100,23 +148,25 @@
   position: relative;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
+
 .timeline-content p {
   color: #000000;
 }
+
 /* Marges pour coller à la ligne */
 .timeline-step:nth-of-type(odd) .timeline-content {
-  margin-right: 11px; /* augmenté */
+  margin-right: 11px;
 }
 
 .timeline-step:nth-of-type(even) .timeline-content {
-  margin-left: 14px; /* augmenté */
+  margin-left: 14px;
 }
 
 /* ✅ CERCLE SUR LA TIMELINE */
 .timeline-icon-wrapper {
   position: absolute;
   left: 452px;
-  top: 26px; /* aligné avec la flèche */
+  top: 26px;
   transform: translate(-50%, 0);
 
   width: 100px;
@@ -126,7 +176,7 @@
   background: #ffffff;
   padding: 7px;
 
-  overflow: hidden; /* coupe l’image */
+  overflow: hidden;
   box-sizing: border-box;
   z-index: 5;
 
@@ -149,7 +199,7 @@
 .timeline-icon {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* remplit tout */
+  object-fit: cover;
   border-radius: 50%;
   z-index: 10;
 }

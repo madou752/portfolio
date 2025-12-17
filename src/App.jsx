@@ -6,6 +6,7 @@ import Timeline from "./sections/Timeline";
 import Contact from "./sections/Contact";
 import Cv from "./sections/Cv";
 import NavBar from "./sections/Navbar";
+import Skills from "./sections/Skills";
 import { useState} from "react";
 import "./index.css";
 
@@ -20,6 +21,7 @@ function App() {
         <NavBar/>
         <Hero />
         <About />
+        <Skills />
         <Projects />
         <Timeline />
         <Cv />

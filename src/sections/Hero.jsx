@@ -96,7 +96,7 @@ export default function Hero() {
                   typewriter
                     .pauseFor(300)
                     .typeString(
-                      `Salut, je suis <span style="color:#04bbff">Mehdi</span>,<br/>mais appelez moi <span style="color:#04bbff">Madou</span>`
+                      `Salut, je suis <span style="color:#04bbff">Mehdi</span>,<br/>mais on m’appelle <span style="color:#04bbff">Madou</span>`
                     )
                     .callFunction(() => {
                       document.querySelector(".Typewriter__cursor").style.display = "none";
