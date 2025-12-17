@@ -19,7 +19,7 @@ export default function ProjectModal({ project, onClose }) {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Bouton fermer */}
-        <button className="close-btn" onClick={onClose}>✕</button>
+        <button className="modal-close-btn" onClick={onClose}>✕</button>
 
         {/* Titre */}
         <h2 className="modal-title">{project.title}</h2>
@@ -32,10 +32,20 @@ export default function ProjectModal({ project, onClose }) {
         {/* Description */}
         <p className="modal-description">{project.description}</p>
 
-        {/* Tags */}
-        <div className="project-tags">
+        {/* Compétences développées */}
+        <div className="modal-skills">
+          <p>{project.skills}</p>
+        </div>
+
+        {/* Date */}
+        <div className="modal-date">
+          <p>{project.date}</p>
+        </div>
+
+        {/* Stack */}
+        <div className="modal-stack">
           {project.stack.map((tech, i) => (
-            <span key={i}>{tech}</span>
+            <span key={i} className="stack-tag">{tech}</span>
           ))}
         </div>
 

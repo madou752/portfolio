@@ -10,45 +10,64 @@ const projects = [
     type: "Application Java",
     image: "/zombicide.png",
     description:
-      "Projet Java visant à digitaliser le jeu Zombicide, avec la mise en place des règles de jeu, la gestion des personnages et des ennemis, et une architecture orientée objet favorisant la lisibilité et l’évolutivité du code.",
+      "Projet de groupe visant à digitaliser le jeu de plateau Zombicide. Le développement inclut la gestion des règles, des personnages, des ennemis et des interactions, avec une architecture orientée objet claire et évolutive.",
+    skills:
+      "Logique informatique, architecture orientée objet, travail en équipe, modélisation des entités.",
+    date: "Mai 2023",
     stack: ["Java"],
+    link: null,
+    code: null,
   },
   {
     title: "Algérie Desert Agro",
     type: "Site vitrine",
     image: "/ada.png",
     description:
-      "Site vitrine développé pour une exploitation agricole, avec pour objectif de présenter l’activité, la production et l’identité de la ferme à travers une interface responsive et accessible.",
-
+      "Site vitrine moderne et responsive destiné à présenter l’activité d’une exploitation agricole, ses produits et son identité visuelle.",
+    skills:
+      "Intégration web, responsive design, structuration de contenu, cohérence visuelle.",
+    date: "Juillet 2023",
     stack: ["HTML", "CSS", "JavaScript"],
     link: "https://ada-dz.com",
+    code: null,
   },
   {
     title: "Application de Gestion Agricole",
     type: "Application mobile",
     image: "/ada_app.png",
     description:
-      "Application mobile en cours de développement visant à centraliser et structurer les données d’une ferme agricole, avec une réflexion sur la gestion des informations et l’expérience utilisateur mobile.",
-
+      "Application mobile en cours de développement permettant de gérer les données internes d’une ferme : production, matériel, pannes et ressources.",
+    skills:
+      "Flutter, conception de base de données, architecture mobile, structuration des données.",
+    date: "Juin 2024",
     stack: ["Flutter", "SQL"],
+    link: null,
+    code: null,
   },
   {
     title: "Site de Gestion de Voitures",
     type: "Application web",
     image: "/agl.png",
     description:
-      "Application web permettant la gestion d’un parc automobile, développée pour mettre en pratique la gestion des données, les interactions utilisateur et l’utilisation d’une base de données relationnelle.",
-
+      "Application web professionnelle permettant la gestion d’un parc automobile : ajout de véhicules, gestion des données et localisation via GPS.",
+    skills:
+      "React, PHP, SQL, intégration de données GPS, développement full-stack.",
+    date: "Septembre 2025",
     stack: ["PHP", "SQL", "React"],
+    link: null,
+    code: null,
   },
   {
     title: "Projet Fil Rouge – RoseMap",
     type: "Application web",
     image: "/rosemap.png",
     description:
-      "Projet fil rouge réalisé en équipe, consistant à développer une application web interactive basée sur une carte dynamique, avec un accent particulier sur la collaboration, l’organisation du code et l’expérience utilisateur.",
-
+      "Projet de groupe réalisé pour Octobre Rose. L’application regroupe toutes les actions liées à l’événement via une carte interactive.",
+    skills:
+      "React, collaboration avec designers, gestion d’équipe, UX centrée utilisateur.",
+    date: "Novembre 2025",
     stack: ["React"],
+    link: null,
     code: "https://github.com/yanisberthaud/rose-map",
   },
   {
@@ -56,10 +75,13 @@ const projects = [
     type: "Application web",
     image: "/portefolio.png",
     description:
-      "Portfolio personnel développé en React afin de présenter mes projets et compétences techniques, tout en mettant en pratique le design d’interface, la structuration des composants et les bonnes pratiques du développement front-end.",
-
+      "Portfolio moderne développé en React pour présenter mes projets, compétences et expériences avec un design soigné et des animations fluides.",
+    skills:
+      "React, UI/UX, animations front-end, structuration de composants.",
+    date: "Novembre 2025",
     stack: ["React"],
-    code : "https://github.com/madou752/portfolio",
+    link: null,
+    code: "https://github.com/madou752/portfolio",
   },
 ];
 
