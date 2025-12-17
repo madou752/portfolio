@@ -34,7 +34,7 @@ function SkillRow({ icon: Icon, svg, title, text }) {
 
 export default function Skills() {
   return (
-    <section id=""className="skills-section">
+    <section id="skills" className="skills-section">
       <h2 className="skills-title">Compétences</h2>
 
       {/* Groupe 1 */}

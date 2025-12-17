@@ -67,6 +67,14 @@ export default function NavBar() {
         </li>
         <li>
           <button
+            onClick={() => scrollToSection("skills")}
+            className={activeSection === "skills" ? "active" : ""}
+          >
+            compétences
+          </button>
+        </li>
+        <li>
+          <button
             onClick={() => scrollToSection("projects")}
             className={activeSection === "projects" ? "active" : ""}
           >
