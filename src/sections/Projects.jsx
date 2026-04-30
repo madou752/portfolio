@@ -153,7 +153,7 @@ const projects = [
 
 const mod = (n, m) => ((n % m) + m) % m;
 
-const GLOBAL_OFFSET = 0;
+const GLOBAL_OFFSET = -210;
 const GLOBAL_Y_OFFSET = -240;
 
 function getInitialStyle(position) {
