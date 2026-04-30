@@ -426,3 +426,82 @@
   height: 180px;
 }
 
+/* ============================= */
+/* RESPONSIVE MOBILE */
+/* ============================= */
+
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 60px 4%;
+    padding-top: 20px;
+  }
+
+  .section-title {
+    margin-bottom: 30px;
+  }
+
+  /* Masquer le toggle sur mobile (toujours grille) */
+  .view-toggle {
+    display: none;
+  }
+
+  /* Grille sur mobile : 1 colonne */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    padding: 0;
+    gap: 16px;
+  }
+
+  .projects-grid .card-inner {
+    min-height: auto;
+  }
+
+  .projects-grid .project-image {
+    height: 160px;
+  }
+
+  /* Modal plein écran sur mobile */
+  .project-modal-backdrop {
+    align-items: flex-end;
+  }
+
+  .project-modal {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 90vh;
+    border-radius: 20px 20px 0 0;
+    padding: 20px 16px;
+  }
+
+  .modal-title {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+    padding-right: 40px;
+  }
+
+  .project-links {
+    flex-direction: column;
+  }
+
+  .project-links a {
+    text-align: center;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Réduire les animations sur mobile */
+@media (max-width: 768px) {
+  .center-card {
+    animation: none;
+    box-shadow: 0 0 20px rgba(31, 95, 191, 0.35);
+  }
+
+  .skill-row:hover {
+    transform: none;
+  }
+}
+

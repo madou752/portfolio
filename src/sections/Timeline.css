@@ -75,7 +75,7 @@
 .timeline h2::before {
   content: "";
   display: block;
-  width: 700px;
+  width: min(700px, 85%);
   height: 3px;
   background: #ffffff;
   margin: 0 auto 75px;
@@ -165,7 +165,7 @@
 /* ✅ CERCLE SUR LA TIMELINE */
 .timeline-icon-wrapper {
   position: absolute;
-  left: 452px;
+  left: 50%;
   top: 26px;
   transform: translate(-50%, 0);
 
@@ -235,6 +235,12 @@
   .timeline {
     padding-top: 40px;
     padding-bottom: 40px;
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+
+  .timeline h2::before {
+    display: none;
   }
 
   .timeline-line {
@@ -245,11 +251,13 @@
   .timeline-step {
     width: 100%;
     justify-content: flex-start !important;
-    padding-left: 50px;
+    padding-left: 55px;
+    min-height: 100px;
   }
 
   .timeline-content {
     max-width: 100%;
+    width: 100%;
     margin: 0;
   }
 
@@ -262,6 +270,13 @@
 
   .timeline-icon-wrapper {
     left: 20px;
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
+    width: 70px;
+    height: 70px;
+  }
+
+  .center-step .timeline-content {
+    max-width: 100%;
+    text-align: left;
   }
 }

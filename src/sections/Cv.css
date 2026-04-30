@@ -43,3 +43,15 @@
   background: #174a94;
   box-shadow: 0 12px 26px rgba(0, 0, 0, 0.2);
 }
+
+@media (max-width: 768px) {
+  .cv-section {
+    padding: 40px 4% 30px 4%;
+  }
+
+  .cv-button {
+    min-height: 44px;
+    width: 100%;
+    text-align: center;
+  }
+}

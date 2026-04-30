@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
 // eslint-disable-next-line no-unused-vars
@@ -133,7 +133,7 @@ const projects = [
       "JavaScript, fetch API, manipulation du DOM, design responsive.",
     date: "2025",
     stack: ["HTML", "CSS", "JavaScript"],
-    link: null,
+    link: "https://front-end-projet-gamma.vercel.app/",
     code: "https://github.com/madou752/front_end_projet",
   },
   {
@@ -269,6 +269,15 @@ export default function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [viewMode, setViewMode] = useState("carousel");
   const total = projects.length;
+
+  useEffect(() => {
+    const checkMobile = () => {
+      if (window.innerWidth <= 768) setViewMode("grid");
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const visibleCards = [
     { index: mod(currentIndex - 2, total), position: -2 },

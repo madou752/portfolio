@@ -4,6 +4,7 @@ import "./NavBar.css";
 export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,6 +15,7 @@ export default function NavBar() {
         0;
 
       setScrolled(scrollTop > 10);
+      if (scrollTop > 10) setMenuOpen(false);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -39,6 +41,7 @@ export default function NavBar() {
   }, []);
 
   const scrollToSection = (id) => {
+    setMenuOpen(false);
     const section = document.getElementById(id);
     if (!section) return;
 
@@ -56,7 +59,21 @@ export default function NavBar() {
         Mehdi Hammadou
       </button>
 
-      <ul className="nav-links">
+      <button
+        className={`burger ${menuOpen ? "open" : ""}`}
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Menu"
+      >
+        <span />
+        <span />
+        <span />
+      </button>
+
+      {menuOpen && (
+        <div className="nav-overlay" onClick={() => setMenuOpen(false)} />
+      )}
+
+      <ul className={`nav-links ${menuOpen ? "nav-open" : ""}`}>
         <li>
           <button
             onClick={() => scrollToSection("about")}

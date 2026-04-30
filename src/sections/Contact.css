@@ -73,3 +73,18 @@ textarea {
 .btn-submit:hover {
   background-color: var(--blue-medium-light);
 }
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 60px 4%;
+    min-height: auto;
+  }
+
+  input, textarea {
+    font-size: 16px; /* évite le zoom iOS sur focus */
+  }
+
+  .btn-submit {
+    min-height: 44px;
+  }
+}
