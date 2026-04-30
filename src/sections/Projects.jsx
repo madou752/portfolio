@@ -107,7 +107,7 @@ const projects = [
       "C#, Blazor WebAssembly, .NET, logique de jeu, composants Razor.",
     date: "2025",
     stack: ["C#", "Blazor", ".NET"],
-    link: null,
+    link: "https://gladiadoums.vercel.app/",
     code: "https://github.com/madou752/gladiadoums",
   },
   {
@@ -126,7 +126,7 @@ const projects = [
   {
     title: "PokéDex – Projet Front-End",
     type: "Application web",
-    image: "/pokedex.png",
+    image: "/pokedoums.png",
     description:
       "Application front-end consommant la PokéAPI pour afficher les données des Pokémon : navigation par génération, recherche par nom et affichage des statistiques détaillées.",
     skills:
