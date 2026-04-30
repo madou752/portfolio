@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
+// eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from "framer-motion";
 import "./Projects.css";
 
@@ -10,9 +11,9 @@ const projects = [
     type: "Application Java",
     image: "/zombicide.png",
     description:
-      "Projet de groupe visant à digitaliser le jeu de plateau Zombicide. Le développement inclut la gestion des règles, des personnages, des ennemis et des interactions, avec une architecture orientée objet claire et évolutive.",
+      "Projet de groupe consistant à digitaliser le célèbre jeu de plateau Zombicide. Gestion des règles, des personnages, des ennemis, des déplacements et des interactions via une architecture orientée objet robuste.",
     skills:
-      "Logique informatique, architecture orientée objet, travail en équipe, modélisation des entités.",
+      "Logique de jeu, architecture orientée objet, collaboration en équipe, modélisation UML.",
     date: "Mai 2023",
     stack: ["Java"],
     link: null,
@@ -23,9 +24,9 @@ const projects = [
     type: "Site vitrine",
     image: "/ada.png",
     description:
-      "Site vitrine moderne et responsive destiné à présenter l’activité d’une exploitation agricole, ses produits et son identité visuelle.",
+      "Site vitrine professionnel et entièrement responsive pour une exploitation agricole algérienne. Mise en valeur des produits, de l'identité visuelle et des informations de contact avec un design moderne adapté à la clientèle cible.",
     skills:
-      "Intégration web, responsive design, structuration de contenu, cohérence visuelle.",
+      "Intégration web, responsive design, structuration de contenu, SEO de base.",
     date: "Juillet 2023",
     stack: ["HTML", "CSS", "JavaScript"],
     link: "https://ada-dz.com",
@@ -36,9 +37,9 @@ const projects = [
     type: "Application mobile",
     image: "/ada_app.png",
     description:
-      "Application mobile en cours de développement permettant de gérer les données internes d’une ferme : production, matériel, pannes et ressources.",
+      "Application mobile permettant à une exploitation agricole de gérer ses données internes : suivi de production, gestion du matériel, enregistrement des pannes et gestion des ressources.",
     skills:
-      "Flutter, conception de base de données, architecture mobile, structuration des données.",
+      "Flutter, conception de base de données, architecture mobile, UX mobile.",
     date: "Juin 2024",
     stack: ["Flutter", "SQL"],
     link: null,
@@ -49,9 +50,9 @@ const projects = [
     type: "Application web",
     image: "/agl.png",
     description:
-      "Application web professionnelle permettant la gestion d’un parc automobile : ajout de véhicules, gestion des données et localisation via GPS.",
+      "Application web complète pour la gestion d'un parc automobile : ajout et suivi des véhicules, interface d'administration et localisation GPS en temps réel. Développement full-stack React + PHP/SQL.",
     skills:
-      "React, PHP, SQL, intégration de données GPS, développement full-stack.",
+      "React, PHP, SQL, intégration GPS, architecture full-stack, déploiement.",
     date: "Septembre 2025",
     stack: ["PHP", "SQL", "React"],
     link: null,
@@ -62,9 +63,9 @@ const projects = [
     type: "Application web",
     image: "/rosemap.png",
     description:
-      "Projet de groupe réalisé pour Octobre Rose. L’application regroupe toutes les actions liées à l’événement via une carte interactive.",
+      "Application web réalisée en groupe pour Octobre Rose. Centralise toutes les actions et événements liés à la campagne via une carte interactive, alliant sensibilisation sociale et développement collaboratif.",
     skills:
-      "React, collaboration avec designers, gestion d’équipe, UX centrée utilisateur.",
+      "React, Leaflet, gestion d'équipe, UX centrée utilisateur, Git.",
     date: "Novembre 2025",
     stack: ["React"],
     link: null,
@@ -75,13 +76,65 @@ const projects = [
     type: "Application web",
     image: "/portefolio.png",
     description:
-      "Portfolio moderne développé en React pour présenter mes projets, compétences et expériences avec un design soigné et des animations fluides.",
+      "Portfolio moderne développé en React pour présenter mes projets, compétences et parcours. Animations fluides avec Framer Motion, design responsive et expérience utilisateur soignée.",
     skills:
-      "React, UI/UX, animations front-end, structuration de composants.",
+      "React, Framer Motion, UI/UX, animations front-end, composants réutilisables.",
     date: "Novembre 2025",
     stack: ["React"],
     link: null,
     code: "https://github.com/madou752/portfolio",
+  },
+  {
+    title: "Doums IA – Générateur de prompts",
+    type: "Application web",
+    image: "/doumsIA.png",
+    description:
+      "Outil interactif permettant de générer des prompts optimisés pour des intelligences artificielles. Interface épurée développée en JavaScript vanilla, rapide et accessible sans dépendance à un framework.",
+    skills:
+      "JavaScript, manipulation du DOM, conception UX, déploiement Vercel.",
+    date: "2025",
+    stack: ["HTML", "CSS", "JavaScript"],
+    link: "https://doums-ia.vercel.app/",
+    code: "https://github.com/madou752/doumsIA",
+  },
+  {
+    title: "GladiaDOUMS – Jeu de gladiateurs",
+    type: "Jeu navigateur (Blazor)",
+    image: "/gladiadoums.png",
+    description:
+      "Jeu de combat de gladiateurs développé avec Blazor WebAssembly. Les joueurs s'affrontent dans une arène avec des personnages aux capacités variées, dans une logique de tour par tour.",
+    skills:
+      "C#, Blazor WebAssembly, .NET, logique de jeu, composants Razor.",
+    date: "2025",
+    stack: ["C#", "Blazor", ".NET"],
+    link: null,
+    code: "https://github.com/madou752/gladiadoums",
+  },
+  {
+    title: "DoumsDeal – Marketplace",
+    type: "Application web full-stack",
+    image: "/doumsdeal.png",
+    description:
+      "Plateforme de petites annonces inspirée de LeBonCoin : publication d'annonces, recherche par catégorie et gestion des utilisateurs. Développée en TypeScript pour une base de code robuste et typée.",
+    skills:
+      "TypeScript, développement full-stack, gestion des utilisateurs, déploiement.",
+    date: "2025",
+    stack: ["TypeScript"],
+    link: "http://78.138.58.85:8080/",
+    code: "https://github.com/madou752/doumsdeal",
+  },
+  {
+    title: "PokéDex – Projet Front-End",
+    type: "Application web",
+    image: "/pokedex.png",
+    description:
+      "Application front-end consommant la PokéAPI pour afficher les données des Pokémon : navigation par génération, recherche par nom et affichage des statistiques détaillées.",
+    skills:
+      "JavaScript, fetch API, manipulation du DOM, design responsive.",
+    date: "2025",
+    stack: ["HTML", "CSS", "JavaScript"],
+    link: null,
+    code: "https://github.com/madou752/front_end_projet",
   },
 ];
 
@@ -201,6 +254,7 @@ function getCardStyle(position) {
 export default function Projects() {
   const [selected, setSelected] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [viewMode, setViewMode] = useState("carousel");
   const total = projects.length;
 
   const visibleCards = [
@@ -218,29 +272,59 @@ export default function Projects() {
     <section id="projects" className="projects-section">
       <h2 className="section-title">Mes projets</h2>
 
-      <div className="carousel-static">
-        <button className="arrow-btn left" onClick={prev}>❮</button>
+      <div className="view-toggle">
+        <button
+          className={`toggle-btn ${viewMode === "carousel" ? "active" : ""}`}
+          onClick={() => setViewMode("carousel")}
+          title="Vue carrousel"
+        >
+          ◧ Carrousel
+        </button>
+        <button
+          className={`toggle-btn ${viewMode === "grid" ? "active" : ""}`}
+          onClick={() => setViewMode("grid")}
+          title="Vue grille"
+        >
+          ⊞ Grille
+        </button>
+      </div>
 
-        <div className="cards-row">
-          {visibleCards.map(({ index, position }) => (
-            <motion.div
-              key={index}
-              className="card-slot"
-              initial={getInitialStyle(position)}
-              animate={getCardStyle(position)}
-              exit={getExitStyle(position)}
-            >
-              <ProjectCard
-                project={projects[index]}
-                onOpen={setSelected}
-                isCenter={position === 0}
-              />
-            </motion.div>
+      {viewMode === "carousel" ? (
+        <div className="carousel-static">
+          <button className="arrow-btn left" onClick={prev}>❮</button>
+
+          <div className="cards-row">
+            {visibleCards.map(({ index, position }) => (
+              <motion.div
+                key={index}
+                className="card-slot"
+                initial={getInitialStyle(position)}
+                animate={getCardStyle(position)}
+                exit={getExitStyle(position)}
+              >
+                <ProjectCard
+                  project={projects[index]}
+                  onOpen={setSelected}
+                  isCenter={position === 0}
+                />
+              </motion.div>
+            ))}
+          </div>
+
+          <button className="arrow-btn right" onClick={next}>❯</button>
+        </div>
+      ) : (
+        <div className="projects-grid">
+          {projects.map((project, i) => (
+            <ProjectCard
+              key={i}
+              project={project}
+              onOpen={setSelected}
+              isCenter={false}
+            />
           ))}
         </div>
-
-        <button className="arrow-btn right" onClick={next}>❯</button>
-      </div>
+      )}
 
       <AnimatePresence>
         {selected && (

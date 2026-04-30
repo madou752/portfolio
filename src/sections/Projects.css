@@ -364,3 +364,65 @@
   transform: scale(1.08);
 }
 
+/* ============================= */
+/* TOGGLE VUE */
+/* ============================= */
+
+.view-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.toggle-btn {
+  padding: 10px 22px;
+  border: 2px solid #1f5fbf;
+  border-radius: 10px;
+  background: transparent;
+  color: #1f5fbf;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+.toggle-btn:hover {
+  background: #e6efff;
+  transform: translateY(-2px);
+}
+
+.toggle-btn.active {
+  background: #1f5fbf;
+  color: white;
+}
+
+/* ============================= */
+/* VUE GRILLE */
+/* ============================= */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.projects-grid .card-inner {
+  height: auto;
+  min-height: 380px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.projects-grid .card-inner:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(31, 95, 191, 0.18);
+}
+
+.projects-grid .project-image {
+  height: 180px;
+}
+
