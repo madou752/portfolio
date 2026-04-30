@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
 // eslint-disable-next-line no-unused-vars
@@ -6,6 +6,19 @@ import { AnimatePresence, motion } from "framer-motion";
 import "./Projects.css";
 
 const projects = [
+  {
+    title: "Site de Gestion de Voitures",
+    type: "Application web",
+    image: "/agl.png",
+    description:
+      "Application web complète pour la gestion d'un parc automobile : ajout et suivi des véhicules, interface d'administration et localisation GPS en temps réel. Développement full-stack React + PHP/SQL.",
+    skills:
+      "React, PHP, SQL, intégration GPS, architecture full-stack, déploiement.",
+    date: "Septembre 2025",
+    stack: ["PHP", "SQL", "React"],
+    link: null,
+    code: null,
+  },
   {
     title: "Zombicide – Jeu de plateau digitalisé",
     type: "Application Java",
@@ -42,19 +55,6 @@ const projects = [
       "Flutter, conception de base de données, architecture mobile, UX mobile.",
     date: "Juin 2024",
     stack: ["Flutter", "SQL"],
-    link: null,
-    code: null,
-  },
-  {
-    title: "Site de Gestion de Voitures",
-    type: "Application web",
-    image: "/agl.png",
-    description:
-      "Application web complète pour la gestion d'un parc automobile : ajout et suivi des véhicules, interface d'administration et localisation GPS en temps réel. Développement full-stack React + PHP/SQL.",
-    skills:
-      "React, PHP, SQL, intégration GPS, architecture full-stack, déploiement.",
-    date: "Septembre 2025",
-    stack: ["PHP", "SQL", "React"],
     link: null,
     code: null,
   },
@@ -153,114 +153,31 @@ const projects = [
 
 const mod = (n, m) => ((n % m) + m) % m;
 
-const GLOBAL_OFFSET = -210;
-const GLOBAL_Y_OFFSET = -240;
+// cx = centre réel du conteneur en pixels (mesuré via useRef)
+function getInitialStyle(position, cx) {
+  const final = getCardStyle(position, cx);
+  return { x: final.x, y: final.y + 40, z: final.z - 40, rotateY: final.rotateY, opacity: 0 };
+}
 
-function getInitialStyle(position) {
-  const final = getCardStyle(position);
-
+function getExitStyle(position, cx) {
+  const final = getCardStyle(position, cx);
   return {
-    x: final.x,
-    y: final.y + 40,
-    z: final.z - 40,
-    rotateY: final.rotateY,
-    opacity: 0,
+    x: final.x, y: final.y - 40, z: final.z + 40, rotateY: final.rotateY, opacity: 0,
+    transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
   };
 }
 
-function getExitStyle(position) {
-  const final = getCardStyle(position);
-
-  return {
-    x: final.x,
-    y: final.y - 40,
-    z: final.z + 40,
-    rotateY: final.rotateY,
-    opacity: 0,
-    transition: {
-      duration: 0.45,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  };
-}
-
-
-function getCardStyle(position) {
-  const base = {
-    transition: {
-      duration: 0.65,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  };
-
+// Positions absolues depuis left:0/top:0 du conteneur.
+// cx = containerWidth / 2  (centre mesuré, pas de % CSS).
+function getCardStyle(position, cx) {
+  const tr = { transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } };
   switch (position) {
-    case 0:
-      return {
-        ...base,
-        x: GLOBAL_OFFSET + 0,
-        y: GLOBAL_Y_OFFSET + 0,
-        z: 0,
-        rotateY: 0,
-        opacity: 1,
-        width: 420,
-        height: 520,
-        zIndex: 5,
-      };
-
-    case 1:
-      return {
-        ...base,
-        x: GLOBAL_OFFSET + 330,
-        y: GLOBAL_Y_OFFSET + 20,
-        z: -80,
-        rotateY: 12,
-        opacity: 0.75,
-        width: 360,
-        height: 440,
-        zIndex: 4,
-      };
-
-    case -1:
-      return {
-        ...base,
-        x: GLOBAL_OFFSET - 270,
-        y: GLOBAL_Y_OFFSET + 20,
-        z: -80,
-        rotateY: -12,
-        opacity: 0.75,
-        width: 360,
-        height: 440,
-        zIndex: 4,
-      };
-
-    case 2:
-      return {
-        ...base,
-        x: GLOBAL_OFFSET + 600,
-        y: GLOBAL_Y_OFFSET + 40,
-        z: -160,
-        rotateY: 20,
-        opacity: 0.45,
-        width: 300,
-        height: 380,
-        zIndex: 3,
-      };
-
-    case -2:
-      return {
-        ...base,
-        x: GLOBAL_OFFSET - 470,
-        y: GLOBAL_Y_OFFSET + 40,
-        z: -160,
-        rotateY: -20,
-        opacity: 0.45,
-        width: 300,
-        height: 380,
-        zIndex: 3,
-      };
-
-    default:
-      return base;
+    case  0: return { ...tr, x: cx - 210, y: 40, z:    0, rotateY:   0, opacity: 1,    width: 420, height: 520, zIndex: 5 };
+    case  1: return { ...tr, x: cx + 120, y: 60, z:  -80, rotateY:  12, opacity: 0.75, width: 360, height: 440, zIndex: 4 };
+    case -1: return { ...tr, x: cx - 480, y: 60, z:  -80, rotateY: -12, opacity: 0.75, width: 360, height: 440, zIndex: 4 };
+    case  2: return { ...tr, x: cx + 390, y: 80, z: -160, rotateY:  20, opacity: 0.45, width: 300, height: 380, zIndex: 3 };
+    case -2: return { ...tr, x: cx - 680, y: 80, z: -160, rotateY: -20, opacity: 0.45, width: 300, height: 380, zIndex: 3 };
+    default: return tr;
   }
 }
 
@@ -268,28 +185,21 @@ export default function Projects() {
   const [selected, setSelected] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [viewMode, setViewMode] = useState("carousel");
-  const [activeFilter, setActiveFilter] = useState("Tous");
+  const [containerWidth, setContainerWidth] = useState(0);
+  const rowRef = useRef(null);
 
-  const allTechs = ["Tous", ...Array.from(new Set(projects.flatMap((p) => p.stack))).sort()];
-
-  const filtered = activeFilter === "Tous"
-    ? projects
-    : projects.filter((p) => p.stack.includes(activeFilter));
-
-  const total = filtered.length;
-
-  const handleFilter = (tech) => {
-    setActiveFilter(tech);
-    setCurrentIndex(0);
-  };
+  const total = projects.length;
+  // Centre réel du conteneur en pixels (fallback 700px avant mesure)
+  const cx = containerWidth > 0 ? containerWidth / 2 : 700;
 
   useEffect(() => {
-    const checkMobile = () => {
+    const update = () => {
       if (window.innerWidth <= 768) setViewMode("grid");
+      if (rowRef.current) setContainerWidth(rowRef.current.clientWidth);
     };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
   }, []);
 
   const visibleCards = [
@@ -306,18 +216,6 @@ export default function Projects() {
   return (
     <section id="projects" className="projects-section">
       <h2 className="section-title">Mes projets</h2>
-
-      <div className="tech-filter">
-        {allTechs.map((tech) => (
-          <button
-            key={tech}
-            className={`filter-btn ${activeFilter === tech ? "active" : ""}`}
-            onClick={() => handleFilter(tech)}
-          >
-            {tech}
-          </button>
-        ))}
-      </div>
 
       <div className="view-toggle">
         <button
@@ -336,23 +234,21 @@ export default function Projects() {
         </button>
       </div>
 
-      {filtered.length === 0 ? (
-        <p className="no-results">Aucun projet pour cette technologie.</p>
-      ) : viewMode === "carousel" ? (
+      {viewMode === "carousel" ? (
         <div className="carousel-static">
           <button className="arrow-btn left" onClick={prev}>❮</button>
 
-          <div className="cards-row">
+          <div className="cards-row" ref={rowRef}>
             {visibleCards.map(({ index, position }) => (
               <motion.div
-                key={`${activeFilter}-${index}`}
+                key={index}
                 className="card-slot"
-                initial={getInitialStyle(position)}
-                animate={getCardStyle(position)}
-                exit={getExitStyle(position)}
+                initial={getInitialStyle(position, cx)}
+                animate={getCardStyle(position, cx)}
+                exit={getExitStyle(position, cx)}
               >
                 <ProjectCard
-                  project={filtered[index]}
+                  project={projects[index]}
                   onOpen={setSelected}
                   isCenter={position === 0}
                 />
@@ -364,7 +260,7 @@ export default function Projects() {
         </div>
       ) : (
         <div className="projects-grid">
-          {filtered.map((project, i) => (
+          {projects.map((project, i) => (
             <ProjectCard
               key={i}
               project={project}
