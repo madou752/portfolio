@@ -68,7 +68,7 @@ const projects = [
       "React, Leaflet, gestion d'équipe, UX centrée utilisateur, Git.",
     date: "Novembre 2025",
     stack: ["React"],
-    link: null,
+    link: "https://rose-map.vercel.app/",
     code: "https://github.com/yanisberthaud/rose-map",
   },
   {
@@ -124,7 +124,7 @@ const projects = [
     code: "https://github.com/madou752/doumsdeal",
   },
   {
-    title: "PokéDex – Projet Front-End",
+    title: "PokéDoums – Projet Front-End",
     type: "Application web",
     image: "/pokedoums.png",
     description:
