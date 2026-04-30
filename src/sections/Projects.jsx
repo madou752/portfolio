@@ -136,6 +136,19 @@ const projects = [
     link: null,
     code: "https://github.com/madou752/front_end_projet",
   },
+  {
+    title: "Joy Club – Landing Page",
+    type: "Site vitrine / Landing page",
+    image: "/joyclub.png",
+    description:
+      "Landing page réalisée en groupe pour promouvoir une boisson. Design attractif et moderne, axé sur l'impact visuel et la mise en valeur du produit pour capter l'attention des visiteurs.",
+    skills:
+      "Intégration web, design promotionnel, travail d'équipe, responsive design.",
+    date: "2025",
+    stack: ["HTML", "CSS", "JavaScript"],
+    link: "https://joy-club.vercel.app/",
+    code: "https://github.com/celest6667/JoyClub",
+  },
 ];
 
 const mod = (n, m) => ((n % m) + m) % m;
