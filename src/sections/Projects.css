@@ -374,6 +374,49 @@
   margin-bottom: 40px;
 }
 
+/* ============================= */
+/* FILTRE PAR TECHNOLOGIE */
+/* ============================= */
+
+.tech-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.filter-btn {
+  padding: 7px 16px;
+  border: 2px solid #cbd8f0;
+  border-radius: 20px;
+  background: transparent;
+  color: #1f5fbf;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: #1f5fbf;
+  background: #e6efff;
+}
+
+.filter-btn.active {
+  background: #1f5fbf;
+  border-color: #1f5fbf;
+  color: white;
+}
+
+.no-results {
+  text-align: center;
+  color: #1f5fbf;
+  opacity: 0.6;
+  font-size: 1.1rem;
+  padding: 60px 0;
+}
+
 .toggle-btn {
   padding: 10px 22px;
   border: 2px solid #1f5fbf;

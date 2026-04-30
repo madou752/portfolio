@@ -74,6 +74,29 @@ textarea {
   background-color: var(--blue-medium-light);
 }
 
+.btn-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.form-feedback {
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.form-feedback.success {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+}
+
+.form-feedback.error {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
 @media (max-width: 768px) {
   .contact {
     padding: 60px 4%;

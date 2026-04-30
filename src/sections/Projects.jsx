@@ -268,7 +268,20 @@ export default function Projects() {
   const [selected, setSelected] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [viewMode, setViewMode] = useState("carousel");
-  const total = projects.length;
+  const [activeFilter, setActiveFilter] = useState("Tous");
+
+  const allTechs = ["Tous", ...Array.from(new Set(projects.flatMap((p) => p.stack))).sort()];
+
+  const filtered = activeFilter === "Tous"
+    ? projects
+    : projects.filter((p) => p.stack.includes(activeFilter));
+
+  const total = filtered.length;
+
+  const handleFilter = (tech) => {
+    setActiveFilter(tech);
+    setCurrentIndex(0);
+  };
 
   useEffect(() => {
     const checkMobile = () => {
@@ -294,6 +307,18 @@ export default function Projects() {
     <section id="projects" className="projects-section">
       <h2 className="section-title">Mes projets</h2>
 
+      <div className="tech-filter">
+        {allTechs.map((tech) => (
+          <button
+            key={tech}
+            className={`filter-btn ${activeFilter === tech ? "active" : ""}`}
+            onClick={() => handleFilter(tech)}
+          >
+            {tech}
+          </button>
+        ))}
+      </div>
+
       <div className="view-toggle">
         <button
           className={`toggle-btn ${viewMode === "carousel" ? "active" : ""}`}
@@ -311,21 +336,23 @@ export default function Projects() {
         </button>
       </div>
 
-      {viewMode === "carousel" ? (
+      {filtered.length === 0 ? (
+        <p className="no-results">Aucun projet pour cette technologie.</p>
+      ) : viewMode === "carousel" ? (
         <div className="carousel-static">
           <button className="arrow-btn left" onClick={prev}>❮</button>
 
           <div className="cards-row">
             {visibleCards.map(({ index, position }) => (
               <motion.div
-                key={index}
+                key={`${activeFilter}-${index}`}
                 className="card-slot"
                 initial={getInitialStyle(position)}
                 animate={getCardStyle(position)}
                 exit={getExitStyle(position)}
               >
                 <ProjectCard
-                  project={projects[index]}
+                  project={filtered[index]}
                   onOpen={setSelected}
                   isCenter={position === 0}
                 />
@@ -337,7 +364,7 @@ export default function Projects() {
         </div>
       ) : (
         <div className="projects-grid">
-          {projects.map((project, i) => (
+          {filtered.map((project, i) => (
             <ProjectCard
               key={i}
               project={project}
