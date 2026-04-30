@@ -139,7 +139,7 @@ const projects = [
   {
     title: "Joy Club – Landing Page",
     type: "Site vitrine / Landing page",
-    image: "/joyclub.png",
+    image: "/joy.png",
     description:
       "Landing page réalisée en groupe pour promouvoir une boisson. Design attractif et moderne, axé sur l'impact visuel et la mise en valeur du produit pour capter l'attention des visiteurs.",
     skills:
