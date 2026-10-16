@@ -33,9 +33,9 @@ export default function Timeline() {
         },
         {
             year: "2025-2026",
-            title: "Alternance chez ADEO",
+            title: "Développeur full stack chez ADEO",
             description:
-                "Je rejoins une école de développement web et j’intègre ADEO en alternance. Je travaille en équipe sur des projets concrets et j’apprends à livrer des applications modernes, fiables et maintenables.",
+                "Je rejoins une école de développement web et j’intègre ADEO en alternance comme développeur full stack. Je travaille en équipe sur des projets concrets et j’apprends à livrer des applications modernes, fiables et maintenables.",
             icon: "/web.png",
         },
         {
