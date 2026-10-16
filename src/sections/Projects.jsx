@@ -7,6 +7,32 @@ import "./Projects.css";
 
 const projects = [
   {
+    title: "Lahist'air – E-commerce de luxe",
+    type: "Application web full-stack",
+    image: "/lahistair.png",
+    description:
+      "Boutique en ligne haut de gamme pour une « maison d'air d'exception », réalisée en équipe lors d'un workshop. Catalogue par collections, fiche produit avec formats, panier persistant, tunnel de commande en 3 étapes et certificat d'authenticité imprimable. Les prix sont recalculés côté serveur.",
+    skills:
+      "React, TypeScript, Redux Toolkit, Tailwind, Express, MongoDB Atlas, travail d'équipe.",
+    date: "2026",
+    stack: ["React", "TypeScript", "MongoDB"],
+    link: "https://lahistair.vercel.app/",
+    code: "https://github.com/madou752/workshop_dev",
+  },
+  {
+    title: "MADEX – Assistant vocal",
+    type: "Application desktop (Python)",
+    image: "/madex.png",
+    description:
+      "Mon « Jarvis » personnel : un assistant vocal qui pilote des sessions de code Claude Code en arrière-plan, Spotify et Gmail, avec des garde-fous qui demandent mon accord avant chaque action sensible. Reconnaissance vocale locale, voix de synthèse et interface en temps réel.",
+    skills:
+      "Python, reconnaissance vocale (Whisper), API Spotify / Google, sécurité, architecture événementielle.",
+    date: "2026",
+    stack: ["Python"],
+    link: null,
+    code: "https://github.com/madou752/madex",
+  },
+  {
     title: "Site de Gestion de Voitures",
     type: "Application web",
     image: "/agl.png",
@@ -128,11 +154,11 @@ const projects = [
     type: "Application web",
     image: "/pokedoums.png",
     description:
-      "Application front-end consommant la PokéAPI pour afficher les données des Pokémon : navigation par génération, recherche par nom et affichage des statistiques détaillées.",
+      "Explorateur Pokémon qui consomme la PokéAPI : recherche par nom, fiches détaillées avec statistiques et description en français, comparaison de deux Pokémon et thème clair / sombre.",
     skills:
-      "JavaScript, fetch API, manipulation du DOM, design responsive.",
+      "TypeScript, Vite, fetch API, manipulation du DOM, design responsive.",
     date: "2025",
-    stack: ["HTML", "CSS", "JavaScript"],
+    stack: ["TypeScript", "Vite"],
     link: "https://front-end-projet-gamma.vercel.app/",
     code: "https://github.com/madou752/front_end_projet",
   },

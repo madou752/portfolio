@@ -79,7 +79,7 @@ export default function NavBar() {
             onClick={() => scrollToSection("about")}
             className={activeSection === "about" ? "active" : ""}
           >
-            About
+            À propos
           </button>
         </li>
         <li>
@@ -95,7 +95,7 @@ export default function NavBar() {
             onClick={() => scrollToSection("projects")}
             className={activeSection === "projects" ? "active" : ""}
           >
-            Projects
+            Projets
           </button>
         </li>
         <li>
@@ -103,7 +103,7 @@ export default function NavBar() {
             onClick={() => scrollToSection("timeline")}
             className={activeSection === "timeline" ? "active" : ""}
           >
-            Timeline
+            Parcours
           </button>
         </li>
         <li>
