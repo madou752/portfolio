@@ -503,3 +503,46 @@
   }
 }
 
+
+/* ============================= */
+/* AUTRES PROJETS / VOIR TOUT */
+/* ============================= */
+
+.projects-subtitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 60px 0 24px;
+}
+
+.see-all-btn {
+  margin-top: 40px;
+  padding: 12px 28px;
+  border: 2px solid #1f5fbf;
+  border-radius: 10px;
+  background: #1f5fbf;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.see-all-btn:hover {
+  background: #174a94;
+  transform: translateY(-2px);
+}
+
+/* Focus clavier visible sur tous les éléments interactifs du portfolio */
+.projects-section button:focus-visible,
+.card-inner:focus-visible,
+.project-modal a:focus-visible,
+.project-modal button:focus-visible {
+  outline: 3px solid #04bbff;
+  outline-offset: 3px;
+}
+
+.modal-note {
+  margin: 12px 0;
+  font-style: italic;
+  color: #4b5563;
+}

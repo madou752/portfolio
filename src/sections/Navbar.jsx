@@ -55,14 +55,15 @@ export default function NavBar() {
         className="nav-logo"
         onClick={() => scrollToSection("hero")}
       >
-        <img src="/logo.png" alt="Logo" className="logo-img" />
+        <img src="/logo.png" alt="" className="logo-img" />
         Mehdi Hammadou
       </button>
 
       <button
         className={`burger ${menuOpen ? "open" : ""}`}
         onClick={() => setMenuOpen(!menuOpen)}
-        aria-label="Menu"
+        aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+        aria-expanded={menuOpen}
       >
         <span />
         <span />

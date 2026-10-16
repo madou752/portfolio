@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
 // eslint-disable-next-line no-unused-vars
@@ -8,8 +8,9 @@ import "./Projects.css";
 const projects = [
   {
     title: "Lahist'air – E-commerce de luxe",
+    featured: true,
     type: "Application web full-stack",
-    image: "/lahistair.png",
+    image: "/lahistair.webp",
     description:
       "Boutique en ligne haut de gamme pour une « maison d'air d'exception », réalisée en équipe lors d'un workshop. Catalogue par collections, fiche produit avec formats, panier persistant, tunnel de commande en 3 étapes et certificat d'authenticité imprimable. Les prix sont recalculés côté serveur.",
     skills:
@@ -21,8 +22,9 @@ const projects = [
   },
   {
     title: "MADEX – Assistant vocal",
+    featured: true,
     type: "Application desktop (Python)",
-    image: "/madex.png",
+    image: "/madex.webp",
     description:
       "Mon « Jarvis » personnel : un assistant vocal qui pilote des sessions de code Claude Code en arrière-plan, Spotify et Gmail, avec des garde-fous qui demandent mon accord avant chaque action sensible. Reconnaissance vocale locale, voix de synthèse et interface en temps réel.",
     skills:
@@ -34,8 +36,9 @@ const projects = [
   },
   {
     title: "Site de Gestion de Voitures",
+    note: "Projet réalisé pour une entreprise : le code et les données restent privés.",
     type: "Application web",
-    image: "/agl.png",
+    image: "/agl.webp",
     description:
       "Application web complète pour la gestion d'un parc automobile : ajout et suivi des véhicules, interface d'administration et localisation GPS en temps réel. Développement full-stack React + PHP/SQL.",
     skills:
@@ -46,22 +49,9 @@ const projects = [
     code: null,
   },
   {
-    title: "Zombicide – Jeu de plateau digitalisé",
-    type: "Application Java",
-    image: "/zombicide.png",
-    description:
-      "Projet de groupe consistant à digitaliser le célèbre jeu de plateau Zombicide. Gestion des règles, des personnages, des ennemis, des déplacements et des interactions via une architecture orientée objet robuste.",
-    skills:
-      "Logique de jeu, architecture orientée objet, collaboration en équipe, modélisation UML.",
-    date: "Mai 2023",
-    stack: ["Java"],
-    link: null,
-    code: null,
-  },
-  {
     title: "Algérie Desert Agro",
     type: "Site vitrine",
-    image: "/ada.png",
+    image: "/ada.webp",
     description:
       "Site vitrine professionnel et entièrement responsive pour une exploitation agricole algérienne. Mise en valeur des produits, de l'identité visuelle et des informations de contact avec un design moderne adapté à la clientèle cible.",
     skills:
@@ -73,6 +63,7 @@ const projects = [
   },
   {
     title: "Application de Gestion Agricole",
+    note: "Projet client en cours de développement : le code reste privé.",
     type: "Application mobile",
     image: "/ada_app.png",
     description:
@@ -87,7 +78,7 @@ const projects = [
   {
     title: "Projet Fil Rouge – RoseMap",
     type: "Application web",
-    image: "/rosemap.png",
+    image: "/rosemap.webp",
     description:
       "Application web réalisée en groupe pour Octobre Rose. Centralise toutes les actions et événements liés à la campagne via une carte interactive, alliant sensibilisation sociale et développement collaboratif.",
     skills:
@@ -100,7 +91,7 @@ const projects = [
   {
     title: "Portfolio Personnel",
     type: "Application web",
-    image: "/portefolio.png",
+    image: "/portefolio.webp",
     description:
       "Portfolio moderne développé en React pour présenter mes projets, compétences et parcours. Animations fluides avec Framer Motion, design responsive et expérience utilisateur soignée.",
     skills:
@@ -112,8 +103,9 @@ const projects = [
   },
   {
     title: "Doums IA – Générateur de prompts",
+    featured: true,
     type: "Application web",
-    image: "/doumsIA.png",
+    image: "/doumsIA.webp",
     description:
       "Outil interactif permettant de générer des prompts optimisés pour des intelligences artificielles. Interface épurée développée en JavaScript vanilla, rapide et accessible sans dépendance à un framework.",
     skills:
@@ -125,8 +117,9 @@ const projects = [
   },
   {
     title: "GladiaDOUMS – Jeu de gladiateurs",
+    featured: true,
     type: "Jeu navigateur (Blazor)",
-    image: "/gladiadoums.png",
+    image: "/gladiadoums.webp",
     description:
       "Jeu de combat de gladiateurs développé avec Blazor WebAssembly. Les joueurs s'affrontent dans une arène avec des personnages aux capacités variées, dans une logique de tour par tour.",
     skills:
@@ -138,8 +131,9 @@ const projects = [
   },
   {
     title: "DoumsDeal – Marketplace",
+    featured: true,
     type: "Application web full-stack",
-    image: "/doumsdeal.png",
+    image: "/doumsdeal.webp",
     description:
       "Plateforme de petites annonces inspirée de LeBonCoin : publication d'annonces, recherche par catégorie et gestion des utilisateurs. Développée en TypeScript pour une base de code robuste et typée.",
     skills:
@@ -151,8 +145,9 @@ const projects = [
   },
   {
     title: "PokéDoums – Projet Front-End",
+    featured: true,
     type: "Application web",
-    image: "/pokedoums.png",
+    image: "/pokedoums.webp",
     description:
       "Explorateur Pokémon qui consomme la PokéAPI : recherche par nom, fiches détaillées avec statistiques et description en français, comparaison de deux Pokémon et thème clair / sombre.",
     skills:
@@ -165,7 +160,7 @@ const projects = [
   {
     title: "Joy Club – Landing Page",
     type: "Site vitrine / Landing page",
-    image: "/joy.png",
+    image: "/joy.webp",
     description:
       "Landing page réalisée en groupe pour promouvoir une boisson. Design attractif et moderne, axé sur l'impact visuel et la mise en valeur du produit pour capter l'attention des visiteurs.",
     skills:
@@ -209,12 +204,16 @@ function getCardStyle(position, cx) {
 
 export default function Projects() {
   const [selected, setSelected] = useState(null);
+  const closeModal = useCallback(() => setSelected(null), []);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [viewMode, setViewMode] = useState("carousel");
   const [containerWidth, setContainerWidth] = useState(0);
   const rowRef = useRef(null);
 
-  const total = projects.length;
+  // Le carrousel met en avant les projets phares ; la grille montre tout, phares d'abord
+  const featured = projects.filter((p) => p.featured);
+  const others = projects.filter((p) => !p.featured);
+  const total = featured.length;
   // Centre réel du conteneur en pixels (fallback 700px avant mesure)
   const cx = containerWidth > 0 ? containerWidth / 2 : 700;
 
@@ -248,6 +247,7 @@ export default function Projects() {
           className={`toggle-btn ${viewMode === "carousel" ? "active" : ""}`}
           onClick={() => setViewMode("carousel")}
           title="Vue carrousel"
+          aria-pressed={viewMode === "carousel"}
         >
           ◧ Carrousel
         </button>
@@ -255,6 +255,7 @@ export default function Projects() {
           className={`toggle-btn ${viewMode === "grid" ? "active" : ""}`}
           onClick={() => setViewMode("grid")}
           title="Vue grille"
+          aria-pressed={viewMode === "grid"}
         >
           ⊞ Grille
         </button>
@@ -262,7 +263,7 @@ export default function Projects() {
 
       {viewMode === "carousel" ? (
         <div className="carousel-static">
-          <button className="arrow-btn left" onClick={prev}>❮</button>
+          <button className="arrow-btn left" onClick={prev} aria-label="Projet précédent">❮</button>
 
           <div className="cards-row" ref={rowRef}>
             {visibleCards.map(({ index, position }) => (
@@ -274,7 +275,7 @@ export default function Projects() {
                 exit={getExitStyle(position, cx)}
               >
                 <ProjectCard
-                  project={projects[index]}
+                  project={featured[index]}
                   onOpen={setSelected}
                   isCenter={position === 0}
                 />
@@ -282,24 +283,44 @@ export default function Projects() {
             ))}
           </div>
 
-          <button className="arrow-btn right" onClick={next}>❯</button>
+          <button className="arrow-btn right" onClick={next} aria-label="Projet suivant">❯</button>
         </div>
       ) : (
-        <div className="projects-grid">
-          {projects.map((project, i) => (
-            <ProjectCard
-              key={i}
-              project={project}
-              onOpen={setSelected}
-              isCenter={false}
-            />
-          ))}
-        </div>
+        <>
+          <div className="projects-grid">
+            {featured.map((project) => (
+              <ProjectCard
+                key={project.title}
+                project={project}
+                onOpen={setSelected}
+                isCenter={false}
+              />
+            ))}
+          </div>
+
+          <h3 className="projects-subtitle">Autres projets</h3>
+          <div className="projects-grid">
+            {others.map((project) => (
+              <ProjectCard
+                key={project.title}
+                project={project}
+                onOpen={setSelected}
+                isCenter={false}
+              />
+            ))}
+          </div>
+        </>
+      )}
+
+      {viewMode === "carousel" && (
+        <button className="see-all-btn" onClick={() => setViewMode("grid")}>
+          Voir tous les projets ({projects.length})
+        </button>
       )}
 
       <AnimatePresence>
         {selected && (
-          <ProjectModal project={selected} onClose={() => setSelected(null)} />
+          <ProjectModal project={selected} onClose={closeModal} />
         )}
       </AnimatePresence>
     </section>

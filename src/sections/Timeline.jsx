@@ -1,4 +1,5 @@
-import { motion, useScroll, useSpring } from "framer-motion";
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion";
 import "./Timeline.css";
 
 export default function Timeline() {
@@ -32,9 +33,9 @@ export default function Timeline() {
         },
         {
             year: "2025-2026",
-            title: "École & Alternance",
+            title: "Alternance chez ADEO",
             description:
-                "Je rejoins une école orientée développement web en alternance. Je me professionnalise et j’apprends à créer des applications modernes et efficaces.",
+                "Je rejoins une école de développement web et j’intègre ADEO en alternance. Je travaille en équipe sur des projets concrets et j’apprends à livrer des applications modernes, fiables et maintenables.",
             icon: "/web.png",
         },
         {

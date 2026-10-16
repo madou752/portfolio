@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import "./About.css";
 
@@ -17,7 +18,7 @@ export default function About() {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     const img = new Image();
-    img.src = "/madou.png";
+    img.src = "/madou.webp";
 
     let animationFrameId;
 
