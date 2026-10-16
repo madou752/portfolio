@@ -58,7 +58,7 @@ const projects = [
       "Intégration web, responsive design, structuration de contenu, SEO de base.",
     date: "Juillet 2023",
     stack: ["HTML", "CSS", "JavaScript"],
-    link: "https://ada-dz.com",
+    link: null,
     code: null,
   },
   {
